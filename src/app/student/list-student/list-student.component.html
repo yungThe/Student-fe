@@ -1,0 +1,26 @@
+<nz-table class="m-t-20 text-center" [nzData]="listStudent" #bacsictable nzTableLayout="fixed" [nzPageSize]="5">
+  <thead>
+    <tr>
+      <th class="text-center">Index</th>
+      <th class="text-center">Full Name</th>
+      <th class="text-center">Year</th>
+      <th class="text-center">Total</th>
+      <th class="text-center">Status</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of bacsictable.data; let i = index" class="">
+      <td class="text-center">{{i+1}}</td>
+      <td class="p-l-80">{{student.fullName}}</td>
+      <td class="text-center">{{student.year}}</td>
+      <td class="text-center">{{student.total}}</td>
+      <td class="text-center">{{student.status}}</td>
+      <td  class="text-center">
+        <nz-divider nzType="vertical"></nz-divider>
+        <a (click)="goToDetail(student.id)">Edit/ </a>
+        <a (click)="exportCsv(student.id)">Get Invoice</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

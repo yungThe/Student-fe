@@ -1,0 +1,19 @@
+<nz-table class="m-t-20 text-center" [nzData]="student" #bacsictable nzTableLayout="fixed" [nzShowPagination]= "false">
+  <thead>
+    <tr>
+      <th class="text-center">Full Name</th>
+      <th class="text-center">Year</th>
+      <th class="text-center">Total</th>
+      <th class="text-center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+      <td class="p-l-80">{{student.fullName}}</td>
+      <td class="text-center">{{student.year}}</td>
+      <td class="text-center">{{student.total}}</td>
+      <td class="text-center">{{student.status}}</td>
+    </tr>
+  </tbody>
+</nz-table>
+
