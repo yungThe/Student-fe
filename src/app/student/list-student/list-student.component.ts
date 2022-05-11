@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list-student',
@@ -46,5 +47,17 @@ export class ListStudentComponent implements OnInit {
       document.body.appendChild(downloadLink);
       downloadLink.click();
     })
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
+    let tmpListData = this.listStudent;
+    moveItemInArray(tmpListData, event.previousIndex, event.currentIndex);
+    tmpListData = tmpListData.map((item: any, index: number) => {
+      return {
+        ...item,
+        student: index + 1
+      }
+    })
+    this.listStudent = [...tmpListData];
   }
 }

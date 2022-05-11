@@ -1,4 +1,4 @@
-<nz-table class="m-t-20 text-center" [nzData]="listStudent" #bacsictable nzTableLayout="fixed" [nzPageSize]="5">
+<nz-table class="m-t-20 text-center" [nzData]="listStudent" #basictable nzTableLayout="fixed" [nzPageSize]="5">
   <thead>
     <tr>
       <th class="text-center">Index</th>
@@ -9,9 +9,9 @@
       <th class="text-center">Action</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let student of bacsictable.data; let i = index" class="">
-      <td class="text-center">{{i+1}}</td>
+  <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+    <tr *ngFor="let student of basictable.data; let i = index" cdkDrag class="text-offwhite">
+      <td class="text-center" cdkDragHandle>{{i+1}}</td>
       <td class="p-l-80">{{student.fullName}}</td>
       <td class="text-center">{{student.year}}</td>
       <td class="text-center">{{student.total}}</td>
