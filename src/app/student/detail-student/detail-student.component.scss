@@ -1,0 +1,38 @@
+h3 {
+  color: #4B4B4B;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.main,
+.content__main {
+  padding-left: 20px;
+}
+
+input[type="text"] {
+  display: block;
+}
+
+input {
+  // color: #CCCCCC;
+  padding: 5px 15px;
+  border: 1px solid #CCCCCC;
+  outline: none;
+  font-size: 16px;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.submit {
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+nz-button {
+  border: 1px solid #CCCCCC;
+  // background-color: ;
+  width: 9%;
+  text-align: center;
+  display: block;
+}

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { saveAs } from 'file-saver';
+import { JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-list-student',
@@ -25,7 +27,7 @@ export class ListStudentComponent implements OnInit {
   getStudent() {
     this.studentService.getStudent().subscribe(res => {
       this.listStudent = res;
-      this.listStudent.map((student: { fullName: string; lastname: string; firstName: string; })=>{
+      this.listStudent.map((student: { fullName: string; lastname: string; firstName: string; }) => {
         student.fullName = student.lastname + ' ' + student.firstName;
         return student;
       })
@@ -38,9 +40,8 @@ export class ListStudentComponent implements OnInit {
 
   exportCsv(id: any) {
     this.urlExport = this.studentService.getCsv(id);
-
     this.studentService.downloadFile(this.urlExport, this.paramQuery).subscribe((response: any) => {
-      let blob:any = new Blob([response], { type: 'text/csv' });
+      let blob: any = new Blob([response], { type: 'text/csv;charset=utf-8' });
       let downloadLink = document.createElement('a');
       downloadLink.href = window.URL.createObjectURL(blob);
       downloadLink.setAttribute('download', 'student.csv');

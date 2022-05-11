@@ -6,6 +6,8 @@ import { DetailStudentComponent } from './detail-student/detail-student.componen
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     StudentRoutingModule,
     NzTableModule,
     NzDividerModule,
-    DragDropModule
+    DragDropModule,
+    ReactiveFormsModule,
+    NzButtonModule,
   ]
 })
 export class StudentModule { }

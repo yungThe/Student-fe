@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StudentModule } from './student/student.module';
 import { StudentLayoutComponent } from './layout/student-layout/student-layout.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppRoutingModule,
     HttpClientModule,
     StudentModule,
-    DragDropModule
+    DragDropModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

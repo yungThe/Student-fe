@@ -9,7 +9,7 @@ export class StudentService {
   apiUrl: string = environment.apiUrl;
   urlExport = '';
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) { }
 
   getStudent() {
@@ -26,4 +26,12 @@ export class StudentService {
   getCsv(id: string) {
     return this.apiUrl + `/student/invoice/` + id;
   }
+
+  editStudent(data, id) {
+
+    return this.httpClient.put<any>(this.apiUrl + `/student/edit/`+ id, data);
+  }
+
 }
+
+

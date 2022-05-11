@@ -1,19 +1,23 @@
-<nz-table class="m-t-20 text-center" [nzData]="student" #bacsictable nzTableLayout="fixed" [nzShowPagination]= "false">
-  <thead>
-    <tr>
-      <th class="text-center">Full Name</th>
-      <th class="text-center">Year</th>
-      <th class="text-center">Total</th>
-      <th class="text-center">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-      <td class="p-l-80">{{student.fullName}}</td>
-      <td class="text-center">{{student.year}}</td>
-      <td class="text-center">{{student.total}}</td>
-      <td class="text-center">{{student.status}}</td>
-    </tr>
-  </tbody>
-</nz-table>
-
+<div class="main">
+  <form [formGroup]="formInforStudent" (ngSubmit)="edit()">
+    <div class="student-name">
+      <h3>Full Name</h3>
+      <input type="text" formControlName="fullName" readonly>
+    </div>
+    <div class="year-student">
+      <h3>Year</h3>
+      <input type="text" formControlName="year" readonly>
+    </div>
+    <div class="total-student">
+      <h3>Total</h3>
+      <input type="text" formControlName="total" readonly>
+    </div>
+    <div class="status-student">
+      <h3>Status</h3>
+      <input type="text" formControlName="status" placeholder="Status">
+    </div>
+    <div class="submit">
+      <button [disabled]="!formInforStudent.valid" nz-button class="button" type="submit">Edit</button>
+    </div>
+  </form>
+</div>
